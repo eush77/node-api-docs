@@ -2,19 +2,33 @@
 'use strict';
 
 var nodeApiDocs = require('./'),
-    helpVersion = require('help-version')(usage());
+    helpVersion = require('help-version')(usage()),
+    minimist =  require('minimist');
 
 
 function usage() {
-  return 'Usage:  nodeapi <module>';
+  return 'Usage:  nodeapi [--markdown | --html | --json] <module>';
 }
 
 
-(function main(argv) {
-  if (argv.length != 1) {
+var opts = minimist(process.argv.slice(2), {
+  boolean: ['markdown', 'html', 'json'],
+  unknown: function (opt) {
+    if (opt[0] == '-') {
+      helpVersion.help(1);
+    }
+  }
+});
+
+
+(function main() {
+  if (opts._.length != 1 || opts.markdown + opts.html + opts.json > 1) {
     return helpVersion.help(1);
   }
 
-  nodeApiDocs.markdown(argv[0])
+  var format = opts.html ? 'html' : opts.json ? 'json' : 'markdown';
+  var module = opts._[0];
+
+  nodeApiDocs[format](module)
     .pipe(process.stdout);
-}(process.argv.slice(2)));
+}());

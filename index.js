@@ -11,11 +11,13 @@ var checkIsBuiltin = function (module) {
 };
 
 
-exports.markdown = function (module) {
+exports = module.exports = function (module) {
   checkIsBuiltin(module);
   return request('https://raw.githubusercontent.com/nodejs/io.js/master/doc/api/' +
                  module + '.markdown');
 };
+
+exports.markdown = exports;
 
 
 exports.html = function (module) {

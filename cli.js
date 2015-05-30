@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 
-var nodeApiDocs = require('./');
+var nodeApiDocs = require('./'),
+    pages = require('./src/pages');
 
 var helpVersion = require('help-version')(usage()),
-    minimist =  require('minimist'),
-    builtins = require('builtins');
+    minimist =  require('minimist');
 
 
 function usage() {
@@ -33,7 +33,10 @@ var opts = minimist(process.argv.slice(2), {
     if (opts._.length != 0 || numberOfFormatOptions > 0) {
       return helpVersion.help(1);
     }
-    return console.log(builtins);
+    return pages(function (err, pages) {
+      if (err) throw err;
+      console.log(pages);
+    });
   }
 
   if (opts._.length != 1 || numberOfFormatOptions > 1) {

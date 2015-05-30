@@ -38,7 +38,7 @@ Writes docs to stdout.
 
 ### `nodeapi --list`
 
-Prints list of builtin modules.
+Prints list of doc pages.
 
 ## Install
 

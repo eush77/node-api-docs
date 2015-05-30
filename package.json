@@ -9,7 +9,8 @@
   },
   "files": [
     "index.js",
-    "cli.js"
+    "cli.js",
+    "src/"
   ],
   "homepage": "https://github.com/eush77/node-api-docs",
   "repository": {
@@ -35,7 +36,6 @@
     "stream"
   ],
   "dependencies": {
-    "builtins": "^1.0.1",
     "help-version": "^0.2.0",
     "minimist": "^1.1.1",
     "request": "^2.55.0"

@@ -36,6 +36,10 @@ nodeApiDocs(module).on('error', function(err))
 
 Writes docs to stdout.
 
+### `nodeapi --list`
+
+Prints list of builtin modules.
+
 ## Install
 
 ```

@@ -11,22 +11,27 @@ var checkIsBuiltin = function (module) {
 };
 
 
-exports = module.exports = function (module) {
-  checkIsBuiltin(module);
-  return request('https://raw.githubusercontent.com/nodejs/io.js/master/doc/api/' +
-                 module + '.markdown');
+var docfn = function (urlfn) {
+  return function (module) {
+    checkIsBuiltin(module);
+    return request(urlfn(module));
+  };
 };
+
+
+exports = module.exports = docfn(function (module) {
+  return 'https://raw.githubusercontent.com/nodejs/io.js/master/doc/api/' +
+    module + '.markdown';
+});
 
 exports.markdown = exports;
 
 
-exports.html = function (module) {
-  checkIsBuiltin(module);
-  return request('https://iojs.org/api/' + module + '.html');
-};
+exports.html = docfn(function (module) {
+  return 'https://iojs.org/api/' + module + '.html';
+});
 
 
-exports.json = function (module) {
-  checkIsBuiltin(module);
-  return request('https://iojs.org/api/' + module + '.json');
-};
+exports.json = docfn(function (module) {
+  return 'https://iojs.org/api/' + module + '.json';
+});

@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 'use strict';
 
-var nodeApiDocs = require('./'),
-    helpVersion = require('help-version')(usage()),
+var nodeApiDocs = require('./');
+
+var helpVersion = require('help-version')(usage()),
     minimist =  require('minimist');
 
 

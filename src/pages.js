@@ -1,8 +1,8 @@
 'use strict';
 
-var request = require('request');
+var herror = require('./herror');
 
-var http = require('http');
+var request = require('request');
 
 
 module.exports = function (cb) {
@@ -13,8 +13,7 @@ module.exports = function (cb) {
     if (err) return cb(err);
 
     if (res.statusCode != 200) {
-      var message = res.statusCode + ' ' + http.STATUS_CODES[res.statusCode];
-      return cb(new Error(message));
+      return cb(herror(res.statusCode));
     }
 
     var pages = body.desc

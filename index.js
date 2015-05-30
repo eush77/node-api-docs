@@ -1,11 +1,18 @@
 'use strict';
 
+var herror = require('./src/herror');
+
 var request = require('request');
 
 
 var docfn = function (urlfn) {
   return function (module) {
-    return request(urlfn(encodeURIComponent(module)));
+    return request(urlfn(encodeURIComponent(module)))
+      .on('response', function (res) {
+        if (res.statusCode != 200) {
+          this.emit('error', herror(res.statusCode));
+        }
+      });
   };
 };
 

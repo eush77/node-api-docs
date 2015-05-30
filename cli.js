@@ -47,5 +47,8 @@ var opts = minimist(process.argv.slice(2), {
   var module = opts._[0];
 
   nodeApiDocs[format](module)
+    .on('error', function (err) {
+      console.error(err.message);
+    })
     .pipe(process.stdout);
 }());

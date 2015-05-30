@@ -7,6 +7,9 @@
   "bin": {
     "nodeapi": "cli.js"
   },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
   "files": [
     "index.js",
     "cli.js",
@@ -40,5 +43,10 @@
     "minimist": "^1.1.1",
     "request": "^2.55.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "concat-stream": "^1.4.8",
+    "dev-null": "^0.1.1",
+    "is-html": "^1.0.0",
+    "tape": "^4.0.0"
+  }
 }

@@ -2,7 +2,7 @@
 
 # node-api-docs
 
-[![Dependency Status][david-badge]][david]
+[![Build Status](https://travis-ci.org/eush77/node-api-docs.svg?branch=master)](https://travis-ci.org/eush77/node-api-docs) [![Dependency Status][david-badge]][david]
 
 Node API docs in Markdown, HTML or JSON.
 

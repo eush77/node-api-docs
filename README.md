@@ -4,10 +4,37 @@
 
 [![Dependency Status][david-badge]][david]
 
-Node API docs in markdown, HTML or JSON.
+Node API docs in Markdown, HTML or JSON.
 
 [david]: https://david-dm.org/eush77/node-api-docs
 [david-badge]: https://david-dm.org/eush77/node-api-docs.png
+
+## API
+
+### `nodeApiDocs(module)`
+### `nodeApiDocs.markdown(module)`
+
+Returns readable stream of Markdown.
+
+### `nodeApiDocs.html(module)`
+
+Returns readable stream of HTML.
+
+### `nodeApiDocs.json(module)`
+
+Returns readable stream of JSON.
+
+### Event: `error`
+
+```js
+nodeApiDocs(module).on('error', function(err))
+```
+
+## CLI
+
+### `nodeapi [--markdown | --html | --json] <module>`
+
+Writes docs to stdout.
 
 ## Install
 

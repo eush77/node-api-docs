@@ -1,20 +1,11 @@
 'use strict';
 
-var request = require('request'),
-    builtins = require('builtins');
-
-
-var checkIsBuiltin = function (module) {
-  if (builtins.indexOf(module) < 0) {
-    throw new Error('No built-in module \'' + module + '\'');
-  }
-};
+var request = require('request');
 
 
 var docfn = function (urlfn) {
   return function (module) {
-    checkIsBuiltin(module);
-    return request(urlfn(module));
+    return request(urlfn(encodeURIComponent(module)));
   };
 };
 

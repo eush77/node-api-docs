@@ -1,6 +1,6 @@
 {
   "name": "node-api-docs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Node API docs in Markdown, HTML or JSON",
   "author": "Eugene Sharygin <eush77@gmail.com>",
   "license": "MIT",

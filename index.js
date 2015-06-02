@@ -7,12 +7,31 @@ var request = require('request');
 
 var docfn = function (urlfn) {
   return function (module) {
-    return request(urlfn(encodeURIComponent(module)))
+    // Our response listener handles HTTP codes, so if bad code arrives
+    // no additional response listeners should be fired.
+    var responseListeners = [];
+
+    var req = request(urlfn(encodeURIComponent(module)))
       .on('response', function (res) {
         if (res.statusCode != 200) {
-          this.emit('error', herror(res.statusCode));
+          return this.emit('error', herror(res.statusCode));
         }
+        responseListeners.forEach(function (listener) {
+          listener.call(req, res);
+        });
       });
+
+    req.on = function (event, listener) {
+      if (event == 'response') {
+        responseListeners.push(listener);
+      }
+      else {
+        request.Request.prototype.on.apply(req, arguments);
+      }
+      return this;
+    };
+
+    return req;
   };
 };
 

@@ -11,6 +11,10 @@ Node API docs in Markdown, HTML or JSON.
 
 ## API
 
+Each stream is also a [request] object.
+
+[request]: https://github.com/request/request
+
 ### `nodeApiDocs(module)`
 ### `nodeApiDocs.markdown(module)`
 
@@ -29,6 +33,8 @@ Returns readable stream of JSON.
 ```js
 nodeApiDocs(module).on('error', function(err))
 ```
+
+Emitted if connection failed, or server responds with code other than 200.
 
 ## CLI
 

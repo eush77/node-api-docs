@@ -1,8 +1,7 @@
 'use strict';
 
-var herror = require('./herror');
-
-var request = require('request');
+var request = require('request'),
+    herror = require('herror');
 
 
 module.exports = function (cb) {

@@ -41,6 +41,7 @@
   "dependencies": {
     "default-pager": "^1.0.2",
     "help-version": "^0.2.0",
+    "herror": "^0.1.0",
     "minimist": "^1.1.1",
     "request": "^2.55.0"
   },

@@ -1,8 +1,7 @@
 'use strict';
 
-var herror = require('./src/herror');
-
-var request = require('request');
+var request = require('request'),
+    herror = require('herror');
 
 
 var docfn = function (urlfn) {

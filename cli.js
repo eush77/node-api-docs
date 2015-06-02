@@ -5,7 +5,8 @@ var nodeApiDocs = require('./'),
     pages = require('./src/pages');
 
 var helpVersion = require('help-version')(usage()),
-    minimist =  require('minimist');
+    minimist =  require('minimist'),
+    pager = require('default-pager');
 
 
 function usage() {
@@ -46,9 +47,12 @@ var opts = minimist(process.argv.slice(2), {
   var format = opts.html ? 'html' : opts.json ? 'json' : 'markdown';
   var module = opts._[0];
 
-  nodeApiDocs[format](module)
+  var req;
+  (req = nodeApiDocs[format](module))
     .on('error', function (err) {
       console.error(err.message);
     })
-    .pipe(process.stdout);
+    .on('response', function (res) {
+      req.pipe(process.stdout.isTTY ? pager() : process.stdout);
+    });
 }());

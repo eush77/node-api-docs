@@ -40,7 +40,7 @@ Emitted if connection failed, or server responds with code other than 200.
 
 ### `nodeapi [--markdown | --html | --json] <module>`
 
-Writes docs to stdout.
+Writes docs to stdout, or pipes to pager if stdout is TTY.
 
 ### `nodeapi --list`
 

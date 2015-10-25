@@ -4,16 +4,12 @@
 
 [![Build Status](https://travis-ci.org/eush77/node-api-docs.svg?branch=master)](https://travis-ci.org/eush77/node-api-docs) [![Dependency Status][david-badge]][david]
 
-Node API docs in Markdown, HTML or JSON.
+Node API docs in Markdown, HTML or JSON, as a readable stream.
 
 [david]: https://david-dm.org/eush77/node-api-docs
 [david-badge]: https://david-dm.org/eush77/node-api-docs.png
 
 ## API
-
-Each stream is also a [request] object.
-
-[request]: https://github.com/request/request
 
 ### `nodeApiDocs(module)`
 ### `nodeApiDocs.markdown(module)`

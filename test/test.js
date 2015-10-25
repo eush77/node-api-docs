@@ -9,16 +9,15 @@ var test = require('tape'),
 
 
 test('markdown', function (t) {
-  t.plan(3);
-  t.equal(nodeApiDocs, nodeApiDocs.markdown, 'should be the default');
+  t.plan(2);
 
-  nodeApiDocs('child_process')
+  nodeApiDocs.markdown('child_process')
     .on('end', function () {
       t.pass('should succeed on built-in module');
     })
     .pipe(devnull());
 
-  nodeApiDocs('node-api-docs')
+  nodeApiDocs.markdown('node-api-docs')
     .on('error', function () {
       t.pass('should fail on userland module');
     })

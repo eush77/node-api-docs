@@ -11,7 +11,6 @@ Node API docs in Markdown, HTML or JSON, as a readable stream.
 
 ## API
 
-### `nodeApiDocs(module)`
 ### `nodeApiDocs.markdown(module)`
 
 Returns readable stream of Markdown.

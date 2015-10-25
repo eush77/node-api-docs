@@ -13,12 +13,10 @@ var docfn = function (urlfn) {
 };
 
 
-exports = module.exports = docfn(function (module) {
+exports.markdown = docfn(function (module) {
   return 'https://raw.githubusercontent.com/nodejs/node/master/doc/api/' +
     module + '.markdown';
 });
-
-exports.markdown = exports;
 
 
 exports.html = docfn(function (module) {

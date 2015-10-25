@@ -35,7 +35,7 @@ var opts = minimist(process.argv.slice(2), {
       return helpVersion.help(1);
     }
     return pages(function (err, pages) {
-      if (err) throw err;
+      if (err) return console.error(err.message);
       console.log(pages);
     });
   }

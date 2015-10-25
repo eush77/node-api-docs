@@ -2,7 +2,7 @@
 'use strict';
 
 var nodeApiDocs = require('./'),
-    pages = require('./src/pages');
+    pages = require('./lib/pages');
 
 var helpVersion = require('help-version')(usage()),
     minimist =  require('minimist'),

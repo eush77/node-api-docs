@@ -13,7 +13,7 @@
   "files": [
     "index.js",
     "cli.js",
-    "src/"
+    "lib/"
   ],
   "homepage": "https://github.com/eush77/node-api-docs",
   "repository": {
@@ -25,6 +25,7 @@
   },
   "keywords": [
     "node",
+    "nodejs",
     "iojs",
     "api",
     "docs",

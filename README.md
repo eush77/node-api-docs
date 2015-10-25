@@ -9,6 +9,15 @@ Node API docs in Markdown, HTML or JSON, as a readable stream.
 [david]: https://david-dm.org/eush77/node-api-docs
 [david-badge]: https://david-dm.org/eush77/node-api-docs.png
 
+## Example
+
+```js
+var apidocs = require('node-api-docs');
+
+apidocs.markdown('net')
+  .pipe(process.stdout);
+```
+
 ## API
 
 ### `nodeApiDocs.markdown(module)`

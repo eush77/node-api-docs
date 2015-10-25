@@ -39,6 +39,7 @@
     "stream"
   ],
   "dependencies": {
+    "debug": "^2.2.0",
     "default-pager": "^1.0.2",
     "got": "^5.0.0",
     "help-version": "^0.2.0",

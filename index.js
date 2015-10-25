@@ -1,11 +1,14 @@
 'use strict';
 
-var got = require('got');
+var debug = require('debug')('node-api-docs'),
+    got = require('got');
 
 
 var docfn = function (urlfn) {
   return function (module) {
-    return got.stream(urlfn(encodeURIComponent(module)));
+    var url = urlfn(encodeURIComponent(module));
+    debug(url);
+    return got.stream(url);
   };
 };
 

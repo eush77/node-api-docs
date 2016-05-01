@@ -15,7 +15,7 @@ var docfn = function (urlfn) {
 
 exports.markdown = docfn(function (module) {
   return 'https://raw.githubusercontent.com/nodejs/node/master/doc/api/' +
-    module + '.markdown';
+    module + '.md';
 });
 
 
